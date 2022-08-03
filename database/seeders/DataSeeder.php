@@ -44,7 +44,13 @@ class DataSeeder extends Seeder
             District::create(["division_id" => 2,"name"=> $district]);
         }
 
+        $chittagongDistricts = [
+            "Chittagong"," Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla", "Noakhali", "Brahmanbaria", "Chandpur"
+            ];
 
+    foreach($chittagongDistricts as $district){
+        District::create(["division_id" => 3,"name"=> $district]);
+    }
 
     }
 }
