@@ -27,6 +27,6 @@ class DatabaseSeeder extends Seeder
         ]);
         // \App\Models\Admin::factory(10)->create();
         // Product::factory(10)->create();
-        $this->call([DataSeeder::class]);
+        $this->call([DataSeeder::class,BloodSeeder::class]);
     }
 }
