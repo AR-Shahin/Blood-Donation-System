@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BloodController;
 use App\Http\Controllers\Admin\CrudController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -20,5 +21,11 @@ Route::prefix('admin')->as('admin.')->middleware(['auth:admin'])->group(function
         Route::get('{crud}', 'show')->name('view');
 
         Route::post('{crud}', 'update')->name('update');
+    });
+
+
+    # Blood
+    Route::controller(BloodController::class)->prefix('blood')->name('blood.')->group(function(){
+        Route::get('/','index')->name('index');
     });
 });
