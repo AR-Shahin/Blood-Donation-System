@@ -1,4 +1,4 @@
-<div class="col-md-3 mt-2">
+<div class="col-md-3">
     <label for=""><b>{{ $label }} : </b></label>
     <select name="{{ $name }}" id="{{ $name }}" class="form-control">
         <option value="">Select a {{ $label }}</option>

@@ -5,8 +5,7 @@ use App\Models\Division;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\DonorController;
-
-
+use App\Models\Blood;
 
 Route::get('/', function () {
     // return view('layouts.frontend_app');
@@ -15,7 +14,8 @@ Route::get('/', function () {
 Route::get('/donor', function () {
     // return view('layouts.frontend_app');
     $divisons = Division::latest()->get();
-    return view('frontend.donor_registration',compact('divisons'));
+    $bloods = Blood::latest()->get();
+    return view('frontend.donor_registration',compact('divisons','bloods'));
 });
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -7,15 +7,40 @@
     <h3 class="text-center">Be a Blood Donor</h3>
 
     <form action="" class="mt-2">
-        <div class="row">
+        <div class="row my-2">
             <x-frontend.input-component label="Name" name="name" placeholder="Enter Your Name"/>
             <x-frontend.input-component label="Email" name="email" placeholder="Enter Your Email"/>
             <x-frontend.input-component label="Phone" name="phone" placeholder="Enter Your Phone"/>
-            <x-frontend.input-component label="Password" name="password" placeholder="Enter Your Password"/>
+            <x-frontend.select-component label="Blood Group" name="blood_id" :data="$bloods"/>
+        </div>
+        <div class="row my-2">
+            <div class="col-md-3">
+                <label for=""><b>Age : </b></label>
+                <input type="number" class="form-control" name="age" placeholder="Enter Your Age" id="age">
+                @error("age")
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="col-md-3">
+                <label for=""><b>Date of Birth : </b></label>
+                <input type="date" class="form-control" name="date_of_birth" id="date_of_birth">
+                @error("date_of_birth")
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
 
+            <div class="col-md-3">
+                <label for=""><b>Last Blood Donation : </b></label>
+                <input type="date" class="form-control" name="last_donation" id="last_donation">
+                @error("last_donation")
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="row my-2">
             <x-frontend.select-component label="Divison" name="division_id" :data="$divisons"/>
 
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3">
                 <label for=""><b>District : </b></label>
                 <select name="district_id" id="district_id" class="form-control">
                     <option value="">Select a District</option>
@@ -26,7 +51,7 @@
                 @enderror
             </div>
 
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3 ">
                 <label for=""><b>Upazila : </b></label>
                 <select name="upazila_id" id="upazila_id" class="form-control">
                     <option value="">Select a Upazila</option>
@@ -36,6 +61,8 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+
+            <x-frontend.input-component label="Password" name="password" placeholder="Enter Your Password"/>
         </div>
     </form>
 </div>
