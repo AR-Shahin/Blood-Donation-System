@@ -23,6 +23,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/admin_auth.php';
 require __DIR__ . '/admin.php';
+require __DIR__ . '/donor.php';
 
 Route::get('mail',function(){
     Mail::to("a@mail.com")->send(new TestMail);
