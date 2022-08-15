@@ -22,6 +22,9 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script src="{{ asset('custom/custom.js') }}"></script>
+    @stack('js')
 
 </body>
 
