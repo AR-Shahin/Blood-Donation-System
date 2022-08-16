@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('donor.dashboard');
+        $user = auth('donor')->user()->load(['upazila.district.division','blood']);
+        return view('donor.dashboard',compact('user'));
     }
 }
