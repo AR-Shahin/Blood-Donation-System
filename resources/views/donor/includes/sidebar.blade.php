@@ -26,7 +26,7 @@
               <p>Crud</p>
             </a>
         </li>
-        @auth('admin')
+        @auth('donor')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.blood.index') }}">
               <i class="nav-icon far fa-circle text-warning"></i>
@@ -34,19 +34,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.donor.index') }}">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Donor</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.user.index') }}">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>User</p>
-            </a>
-        </li>
-          <li class="nav-item">
-            <form action="{{ route('admin.logout') }}" method="POST">
+            <form action="{{ route('donor.logout') }}" method="POST">
                 @csrf
                 <button class="btn btn-success btn-block">Logout</button>
             </form>

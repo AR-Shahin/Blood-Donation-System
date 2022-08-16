@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Donor;
 
 use App\Models\Blood;
+use App\Models\Donor;
 use App\Models\Division;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
+use App\Http\Requests\Auth\DonorLoginRequest;
 use App\Http\Requests\DonorRegistrationRequest;
-use App\Models\Donor;
 
 class AuthController extends Controller
 {
@@ -41,8 +44,25 @@ class AuthController extends Controller
         return redirect()->route('donor.login');
     }
 
-    public function authenticate()
+    public function authenticate(DonorLoginRequest $request)
     {
-        # code...
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
+        return redirect()->intended(RouteServiceProvider::DONOR_HOME);
     }
+
+
+    public function logout(Request $request)
+    {
+        Auth::guard('donor')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('donor.login');
+    }
+
 }

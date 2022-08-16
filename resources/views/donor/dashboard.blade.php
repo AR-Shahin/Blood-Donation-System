@@ -1,5 +1,5 @@
 @extends('layouts.backend_master')
-@section('title','Admin Dashboard')
+@section('title','Donor Dashboard')
 @section('master_content')
 
 

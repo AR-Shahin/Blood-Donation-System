@@ -10,7 +10,7 @@
           <div class="card-body login-card-body">
             <h3 class="login-box-msg">Donor Login</h3>
 
-            <form action="" method="post">
+            <form action="{{ route('donor.authenticate') }}" method="post">
                 @if(session('status'))
                 <span class="text-success">{{ session('status') }}</span>
                 @endisset
@@ -59,7 +59,7 @@
               <a href="">I forgot my password</a>
             </p>
             <p class="mb-0">
-              <a href="" class="text-center">Register</a>
+              <a href="{{ route('donor.registration') }}" class="text-center">Register</a>
             </p>
           </div>
           <!-- /.login-card-body -->
