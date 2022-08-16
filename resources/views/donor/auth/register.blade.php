@@ -6,7 +6,8 @@
 <div class="container mt-3">
     <h3 class="text-center">Be a Blood Donor</h3>
 
-    <form action="" class="mt-2">
+    <form action="{{ route('donor.store') }}" class="mt-2" method="POST">
+        @csrf
         <div class="row my-2">
             <x-frontend.input-component label="Name" name="name" placeholder="Enter Your Name"/>
             <x-frontend.input-component label="Email" name="email" placeholder="Enter Your Email"/>

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('phone');
             $table->integer('age');
             $table->date('date_of_birth');
-            $table->string('last_donation');
+            $table->string('last_donation')->nullable();
             $table->timestamps();
         });
     }

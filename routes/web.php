@@ -1,11 +1,12 @@
 <?php
 
+use Carbon\Carbon;
+use App\Models\Blood;
 use App\Mail\TestMail;
 use App\Models\Division;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\DonorController;
-use App\Models\Blood;
 
 Route::get('/', function () {
     // return view('layouts.frontend_app');
@@ -26,7 +27,8 @@ require __DIR__ . '/admin.php';
 require __DIR__ . '/donor.php';
 
 Route::get('mail',function(){
-    Mail::to("a@mail.com")->send(new TestMail);
+    echo Carbon::now()->subYears(18)->format('Y-m-d');
+    // Mail::to("a@mail.com")->send(new TestMail);
 });
 
 # Donor Registration
