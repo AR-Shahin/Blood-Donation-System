@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\District;
 use App\Models\Division;
+use App\Models\Upazila;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,14 +23,14 @@ class DataSeeder extends Seeder
             Division::create(["name" => $division]);
         }
 
-        $dhahkaDistricts = [
+        $dhahkaDistricts = [ // 1 - 6
             "Dhaka","Faridpur","Gazipur","Narayanganj","Narsingdi","Kisorgong"
         ];
 
         foreach($dhahkaDistricts as $district){
             District::create(["division_id" => 1,"name"=> $district]);
         }
-        $rajshaiDistricts = [
+        $rajshaiDistricts = [ // 7 - 14
                 "Rajshahi",
                 "Sirajganj",
                 "Pabna",
@@ -44,13 +45,20 @@ class DataSeeder extends Seeder
             District::create(["division_id" => 2,"name"=> $district]);
         }
 
-        $chittagongDistricts = [
+        $chittagongDistricts = [ // 15 - 26
             "Chittagong"," Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla", "Noakhali", "Brahmanbaria", "Chandpur"
             ];
 
-    foreach($chittagongDistricts as $district){
-        District::create(["division_id" => 3,"name"=> $district]);
-    }
+        foreach($chittagongDistricts as $district){
+            District::create(["division_id" => 3,"name"=> $district]);
+        }
+
+        for($i = 1;$i<=100;$i++){
+            Upazila::create([
+                "name" => "Upazila $i",
+                "district_id" => rand(1,25)
+            ]);
+        }
 
     }
 }

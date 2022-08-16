@@ -64,6 +64,10 @@
 
             <x-frontend.input-component label="Password" name="password" placeholder="Enter Your Password"/>
         </div>
+
+        <div class="col-md-3 ">
+            <button class="btn btn-sm btn-success">Register</button>
+        </div>
     </form>
 </div>
 @stop
@@ -106,7 +110,7 @@
 
             const {data:{upazilas}} = await axios.get(url);
 
-            log(upazilas)
+            // log(upazilas)
             appendData(upazilas, upazila_id,"Upazila");
 
         });

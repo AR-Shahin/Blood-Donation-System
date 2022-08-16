@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <p>Register to save people's lives
                         রক্তদাতা হতে রেজিস্ট্রেশন করুন</p>
-                    <a href="" class="btn btn-sm btn-success">Be a Donor</a>
+                    <a href="{{ route('donor.registration') }}" class="btn btn-sm btn-success">Be a Donor</a>
                 </div>
             </div>
         </div>
