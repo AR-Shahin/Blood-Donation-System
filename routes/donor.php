@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Donor\AuthController;
+use App\Http\Controllers\Donor\{
+    DashboardController,AuthController
+};
 use Illuminate\Support\Facades\Route;
 
 Route::name('donor.')->prefix('donor')->group(function(){
