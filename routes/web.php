@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
 require __DIR__ . '/admin_auth.php';
 require __DIR__ . '/admin.php';
 require __DIR__ . '/donor.php';
+require __DIR__ . '/user.php';
 
 Route::get('mail',function(){
     echo Carbon::now()->subYears(18)->format('Y-m-d');

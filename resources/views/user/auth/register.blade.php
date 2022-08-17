@@ -1,59 +1,120 @@
-{{-- <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.frontend_app')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+@section('app_content')
+<x-frontend.navbar-component/>
+<div class="container mt-3">
+    <h3 class="text-center">Be a Blood User</h3>
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+    <form action="{{ route('user.store') }}" class="mt-2" method="POST">
+        @csrf
+        <div class="row my-2">
+            <x-frontend.input-component label="Name" name="name" placeholder="Enter Your Name"/>
+            <x-frontend.input-component label="Email" name="email" placeholder="Enter Your Email"/>
+            <x-frontend.input-component label="Phone" name="phone" placeholder="Enter Your Phone"/>
+            <x-frontend.select-component label="Blood Group" name="blood_id" :data="$bloods"/>
+        </div>
+        <div class="row my-2">
+            <div class="col-md-3">
+                <label for=""><b>Age : </b></label>
+                <input type="number" class="form-control" name="age" placeholder="Enter Your Age" id="age">
+                @error("age")
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="col-md-3">
+                <label for=""><b>Date of Birth : </b></label>
+                <input type="date" class="form-control" name="date_of_birth" id="date_of_birth">
+                @error("date_of_birth")
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+            <div class="col-md-3">
+                <label for=""><b>Last Blood Donation : </b></label>
+                <input type="date" class="form-control" name="last_donation" id="last_donation">
+                @error("last_donation")
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="row my-2">
+            <x-frontend.select-component label="Divison" name="division_id" :data="$divisons"/>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <div class="col-md-3">
+                <label for=""><b>District : </b></label>
+                <select name="district_id" id="district_id" class="form-control">
+                    <option value="">Select a District</option>
+
+                </select>
+                @error("district_id")
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+            <div class="col-md-3 ">
+                <label for=""><b>Upazila : </b></label>
+                <select name="upazila_id" id="upazila_id" class="form-control">
+                    <option value="">Select a Upazila</option>
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+                </select>
+                @error("upazila_id")
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-frontend.input-component label="Password" name="password" placeholder="Enter Your Password"/>
+        </div>
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
+        <div class="col-md-3 ">
+            <button class="btn btn-sm btn-success">Register</button>
+        </div>
+    </form>
+</div>
+@stop
+@push('js')
+<script>
+    const division_id = $$('#division_id');
+        const district_id = $$('#district_id');
+        const upazila_id = $$('#upazila_id');
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
+        const appendData = (items,element,title) => {
+            let html = `<option value="">Select A ${title}</option>`;
 
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout> --}}
+            items.forEach(item => {
+                html += `<option value="${item.id}">${item.name}</option>`;
+            });
+
+            element.innerHTML = html;
+        }
+
+
+        division_id.addEventListener("change",async (e)=>{
+            let id = e.currentTarget.value;
+            if(id === ""){
+            upazila_id.innerHTML = '<option value="">Select A Upazila</option>';
+            district_id.innerHTML = '<option value="">Select A District</option>';
+
+            }
+            upazila_id.innerHTML = '<option value="">Select A Upazila</option>';
+            let url = `${base_url}/division-districts/${id}`;
+
+            const {data:{districts}} = await axios.get(url);
+
+            appendData(districts, district_id,"District");
+        });
+
+        district_id.addEventListener("change",async (e)=>{
+            let id = e.currentTarget.value;
+
+            let url = `${base_url}/district-upazilas/${id}`;
+
+            const {data:{upazilas}} = await axios.get(url);
+
+            // log(upazilas)
+            appendData(upazilas, upazila_id,"Upazila");
+
+        });
+
+</script>
+@endpush

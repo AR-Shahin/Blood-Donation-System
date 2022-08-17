@@ -1,6 +1,6 @@
 @extends('layouts.backend_app')
 
-@section('title' ,'Admin Login')
+@section('title' ,'User Login')
 
 @section('app_content')
 <div class="login-page">
@@ -8,7 +8,7 @@
         <!-- /.login-logo -->
         <div class="card">
           <div class="card-body login-card-body">
-            <h3 class="login-box-msg">Admin Login</h3>
+            <h3 class="login-box-msg">User Login</h3>
 
             <form action="{{ route('admin.login') }}" method="post">
                 @if(session('status'))
