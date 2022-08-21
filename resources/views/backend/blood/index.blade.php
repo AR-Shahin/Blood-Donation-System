@@ -10,7 +10,7 @@
                 <h2 class="text-info">Blood List</h2>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-hover text-center">
+                <table class="table table-bordered table-hover text-center table-sm">
                     <tr>
                         <th>SL</th>
                         <th>Group Name</th>
@@ -23,10 +23,10 @@
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $blood->name }}</td>
-                            <td>10</td>
+                            <td>{{ $blood->donors_count }}</td>
                             <td>8</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-success">View</a>
+                                <a href="{{ route('admin.blood.donors',$blood->id) }}" class="btn btn-sm btn-success">View</a>
                             </td>
                         </tr>
                         @endforeach

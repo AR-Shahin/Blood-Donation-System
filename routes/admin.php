@@ -29,6 +29,7 @@ Route::prefix('admin')->as('admin.')->middleware(['auth:admin'])->group(function
     # Blood
     Route::controller(BloodController::class)->prefix('blood')->name('blood.')->group(function(){
         Route::get('/','index')->name('index');
+        Route::get('/donors/{blood}','showDonorsByBloodGroup')->name('donors');
     });
 
      # Donor

@@ -4,14 +4,14 @@
     <div class="wrapper">
 
         <!-- Preloader -->
-        @includeIf('donor.includes.preloader')
+        @includeIf('backend.includes.preloader')
 
         <!-- Navbar -->
-        @includeIf('donor.includes.navbar')
+        @includeIf('backend.includes.navbar')
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @includeIf('donor.includes.sidebar')
+        @includeIf('backend.includes.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -41,6 +41,6 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        @includeIf('donor.includes.footer')
+        @includeIf('backend.includes.footer')
     </div>
 @endsection
