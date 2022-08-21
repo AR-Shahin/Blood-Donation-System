@@ -13,40 +13,16 @@
           <img src="{{ asset('Backend') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{ auth('user')->user()->name }}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.crud.index') }}">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Crud</p>
-            </a>
-        </li>
-        @auth('admin')
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.blood.index') }}">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Blood</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.donor.index') }}">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Donor</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.user.index') }}">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>User</p>
-            </a>
-        </li>
+        @auth('user')
           <li class="nav-item">
-            <form action="{{ route('admin.logout') }}" method="POST">
+            <form action="{{ route('user.logout') }}" method="POST">
                 @csrf
                 <button class="btn btn-success btn-block">Logout</button>
             </form>
