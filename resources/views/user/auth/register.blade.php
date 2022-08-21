@@ -4,7 +4,7 @@
 @section('app_content')
 <x-frontend.navbar-component/>
 <div class="container mt-3">
-    <h3 class="text-center">Be a Blood User</h3>
+    <h3 class="text-center">Be a Blood Consumer</h3>
 
     <form action="{{ route('user.store') }}" class="mt-2" method="POST">
         @csrf
@@ -26,14 +26,6 @@
                 <label for=""><b>Date of Birth : </b></label>
                 <input type="date" class="form-control" name="date_of_birth" id="date_of_birth">
                 @error("date_of_birth")
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div class="col-md-3">
-                <label for=""><b>Last Blood Donation : </b></label>
-                <input type="date" class="form-control" name="last_donation" id="last_donation">
-                @error("last_donation")
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

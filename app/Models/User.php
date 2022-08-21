@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -50,4 +51,13 @@ class User extends Authenticatable
     // {
     //     $this->notify(new AdminResetPasswordNotification($token));
     // }
+
+    public function upazila(): BelongsTo
+    {
+        return $this->belongsTo(Upazila::class);
+    }
+    public function blood(): BelongsTo
+    {
+        return $this->belongsTo(Blood::class);
+    }
 }

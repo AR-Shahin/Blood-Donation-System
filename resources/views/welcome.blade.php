@@ -20,7 +20,7 @@
                 <div class="card-body">
                     <p>Register to save people's lives
                         রক্তদাতা হতে রেজিস্ট্রেশন করুন</p>
-                    <a href="" class="btn btn-sm btn-info">Be a Consumer</a>
+                    <a href="{{ route('user.registration') }}"" class="btn btn-sm btn-info">Be a Consumer</a>
                 </div>
             </div>
         </div>

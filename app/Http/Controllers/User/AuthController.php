@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Blood;
 use App\Models\User;
+use App\Models\Blood;
 use App\Models\Division;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\UserLoginRequest;
 use App\Http\Requests\UserRegistrationRequest;
 
 class AuthController extends Controller
@@ -38,19 +39,18 @@ class AuthController extends Controller
             "age" => $request->age,
             "phone" => $request->phone,
             "date_of_birth" => $request->date_of_birth,
-            "last_donation" => $request->last_donation ? $request->last_donation : null,
             "upazila_id" => $request->upazila_id
         ]);
-        return redirect()->route('user.login');
+        return redirect()->intended(route('user.login'));
     }
 
-    public function authenticate(LoginRequest $request)
+    public function authenticate(UserLoginRequest $request)
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::User_HOME);
+        return redirect()->intended(RouteServiceProvider::USER_HOME);
     }
 
 

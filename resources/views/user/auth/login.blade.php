@@ -10,7 +10,7 @@
           <div class="card-body login-card-body">
             <h3 class="login-box-msg">User Login</h3>
 
-            <form action="{{ route('admin.login') }}" method="post">
+            <form action="{{ route('user.authenticate') }}" method="post">
                 @if(session('status'))
                 <span class="text-success">{{ session('status') }}</span>
                 @endisset
@@ -55,11 +55,11 @@
             </form>
 
 
-            <p class="mb-1">
+            {{-- <p class="mb-1">
               <a href="{{ route('admin.password.request') }}">I forgot my password</a>
-            </p>
+            </p> --}}
             <p class="mb-0">
-              <a href="" class="text-center">Register</a>
+              <a href="{{ route('user.registration') }}" class="text-center">Register</a>
             </p>
           </div>
           <!-- /.login-card-body -->
