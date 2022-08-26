@@ -10,7 +10,7 @@ class DonorController extends Controller
 {
     public function index()
     {
-        $donors = Donor::latest()->get();
+        $donors = Donor::with(['upazila','blood'])->latest()->get();
         return view('backend.donor.index',compact('donors'));
     }
 }

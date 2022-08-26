@@ -7,7 +7,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h2 class="text-info">Donor List</h2>
+                <h2 class="text-info">Donor List <span class="badge badge-success badge-pill">{{ count($donors) }}</span></h2>
             </div>
             <div class="card-body">
                 <table class="display table table-bordered table-hover text-center dataTable">
@@ -16,7 +16,7 @@
                             <th>SL</th>
                             <th>Name</th>
                             <th>Group</th>
-                            <th>Donation</th>
+                            <th>Upazila</th>
                             <th>Last Donation</th>
                             <th>Actions</th>
                         </tr>
@@ -26,11 +26,14 @@
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $donor->name }}</td>
-                            <td>10</td>
-                            <td>8</td>
-                            <td>8</td>
+                            <td>{{ $donor->blood->name }}</td>
+                            <td>{{ $donor->upazila->name }}</td>
+                            <td>{{ $donor->last_donation ?? "New" }}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-success">View</a>
+                                <a href="" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
+                                <form action="" class="d-inline">
+                                    <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
