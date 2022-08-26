@@ -40,7 +40,7 @@
                         @empty
                             <tr>
                                 <td colspan="6">
-                                    <span class="text-danger">Donor not Available!</span>
+                                    <span class="text-danger">Donor not Available!ls</span>
                                 </td>
                             </tr>
                         @endforelse

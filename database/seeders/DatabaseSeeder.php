@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Admin;
 use App\Models\Donor;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,5 +31,6 @@ class DatabaseSeeder extends Seeder
         // Product::factory(10)->create();
         $this->call([DataSeeder::class,BloodSeeder::class]);
         Donor::factory(20)->create();
+        User::factory(20)->create();
     }
 }
