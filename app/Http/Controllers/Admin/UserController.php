@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::latest()->get();
+        $users = User::with(['upazila','blood'])->latest()->get();
         return view('backend.user.index',compact('users'));
     }
 }

@@ -16,6 +16,7 @@
                             <th>SL</th>
                             <th>Name</th>
                             <th>Group</th>
+                            <th>Phone</th>
                             <th>Upazila</th>
                             <th>Last Donation</th>
                             <th>Actions</th>
@@ -27,6 +28,7 @@
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $donor->name }}</td>
                             <td>{{ $donor->blood->name }}</td>
+                            <td>{{ $donor->phone }}</td>
                             <td>{{ $donor->upazila->name }}</td>
                             <td>{{ $donor->last_donation ?? "New" }}</td>
                             <td>
