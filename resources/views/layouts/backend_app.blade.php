@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="{{ asset('Backend') }}/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('Backend') }}/plugins/summernote/summernote-bs4.min.css">
-
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
   @stack('css')
 
 </head>
@@ -70,8 +70,11 @@
 <script src="{{ asset('Backend') }}/dist/js/pages/dashboard.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('custom/custom.js') }}"></script>
-
+<script>
+    $('.dataTable').DataTable();
+ </script>
 @stack('script')
 </body>
 </html>

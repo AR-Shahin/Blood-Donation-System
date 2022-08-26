@@ -10,27 +10,30 @@
                 <h2 class="text-info">Donor List</h2>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-hover text-center">
-                    <tr>
-                        <th>SL</th>
-                        <th>Name</th>
-                        <th>Group</th>
-                        <th>Donation</th>
-                        <th>Last Donation</th>
-                        <th>Actions</th>
-                    </tr>
-                    <tbody id="tbody">
-                        {{-- @foreach ($donors as $blood)
+                <table class="display table table-bordered table-hover text-center dataTable">
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Group</th>
+                            <th>Donation</th>
+                            <th>Last Donation</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($donors as $donor)
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
-                            <td>{{ $blood->name }}</td>
+                            <td>{{ $donor->name }}</td>
                             <td>10</td>
+                            <td>8</td>
                             <td>8</td>
                             <td>
                                 <a href="" class="btn btn-sm btn-success">View</a>
                             </td>
                         </tr>
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -42,3 +45,10 @@
 @endsection
 
 
+@push('css')
+
+@endpush
+@push('script')
+
+
+@endpush

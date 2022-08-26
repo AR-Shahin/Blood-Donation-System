@@ -41,4 +41,8 @@ Route::prefix('admin')->as('admin.')->middleware(['auth:admin'])->group(function
      Route::controller(UserController::class)->prefix('user')->name('user.')->group(function(){
         Route::get('/','index')->name('index');
     });
+
+    Route::get('data',function(){
+        return view('backend.crud.test');
+    });
 });
