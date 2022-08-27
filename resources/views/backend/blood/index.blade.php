@@ -10,14 +10,16 @@
                 <h2 class="text-info">Blood List</h2>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-hover text-center table-sm">
-                    <tr>
-                        <th>SL</th>
-                        <th>Group Name</th>
-                        <th>Donor</th>
-                        <th>Available</th>
-                        <th>Actions</th>
-                    </tr>
+                <table class="dataTable table table-bordered table-hover text-center table-sm">
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Group Name</th>
+                            <th>Donor</th>
+                            <th>Available</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
                     <tbody id="tbody">
                         @foreach ($bloods as $blood)
                         <tr>

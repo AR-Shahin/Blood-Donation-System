@@ -16,15 +16,17 @@
             </div>
             <div class="card-body">
 
-                <table class="table table-bordered table-hover text-center table-sm">
-                    <tr>
-                        <th>SL</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Age</th>
-                        <th>Last Donate</th>
-                        <th>Actions</th>
-                    </tr>
+                <table class="table table-bordered table-hover text-center table-sm dataTable">
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Age</th>
+                            <th>Last Donate</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
                     <tbody id="tbody">
                         @forelse ( $blood->donors as $donor )
                         <tr>
