@@ -24,6 +24,7 @@ class DonorFactory extends Factory
             "blood_id" => rand(1,8),
             "age" => rand(20,35),
             "phone" => $this->faker->phoneNumber,
+            "status" => true,
             "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
             "last_donation" => null,
             "upazila_id" => rand(1,25)

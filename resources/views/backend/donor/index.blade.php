@@ -32,7 +32,7 @@
                             <td>{{ $donor->upazila->name }}</td>
                             <td>{{ $donor->last_donation ?? "New" }}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
+                                <a href="{{ route('admin.donor.show',$donor->id) }}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
                                 <form action="" class="d-inline">
                                     <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                 </form>

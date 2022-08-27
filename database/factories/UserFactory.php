@@ -23,6 +23,7 @@ class UserFactory extends Factory
             "password" => bcrypt("password"),
             "blood_id" => rand(1,8),
             "age" => rand(20,35),
+            "status" => true,
             "phone" => $this->faker->phoneNumber,
             "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
             "upazila_id" => rand(1,25)

@@ -13,4 +13,10 @@ class DonorController extends Controller
         $donors = Donor::with(['upazila','blood'])->latest()->get();
         return view('backend.donor.index',compact('donors'));
     }
+
+    public function showDonor(Donor $donor)
+    {
+        $donor->with(["upazila","blood"]);
+        return view('backend.donor.show',compact('donor'));
+    }
 }

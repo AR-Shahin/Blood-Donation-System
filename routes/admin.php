@@ -35,6 +35,7 @@ Route::prefix('admin')->as('admin.')->middleware(['auth:admin'])->group(function
      # Donor
      Route::controller(DonorController::class)->prefix('donor')->name('donor.')->group(function(){
         Route::get('/','index')->name('index');
+        Route::get('/show/{donor}','showDonor')->name('show');
     });
 
      # User

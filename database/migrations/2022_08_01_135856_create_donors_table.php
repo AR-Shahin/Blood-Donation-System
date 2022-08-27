@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('phone');
+            $table->boolean('status')->default(true);
             $table->integer('age');
             $table->date('date_of_birth');
             $table->string('last_donation')->nullable();
