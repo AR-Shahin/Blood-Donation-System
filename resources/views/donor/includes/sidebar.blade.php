@@ -20,17 +20,12 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.crud.index') }}">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Crud</p>
-            </a>
-        </li>
+
         @auth('donor')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.blood.index') }}">
               <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Blood</p>
+              <p>Blood Request</p>
             </a>
         </li>
         <li class="nav-item">
