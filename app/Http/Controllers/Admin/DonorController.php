@@ -16,7 +16,7 @@ class DonorController extends Controller
 
     public function showDonor(Donor $donor)
     {
-        $donor->with(["upazila","blood"]);
+        $donor->with(["upazila.district.division","blood"]);
         return view('backend.donor.show',compact('donor'));
     }
 }

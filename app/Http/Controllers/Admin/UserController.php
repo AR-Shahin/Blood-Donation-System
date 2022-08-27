@@ -13,4 +13,10 @@ class UserController extends Controller
         $users = User::with(['upazila','blood'])->latest()->get();
         return view('backend.user.index',compact('users'));
     }
+
+    public function showDonor(User $user)
+    {
+        $user->with(["upazila.district.division","blood"]);
+        return view('backend.user.show',compact('user'));
+    }
 }

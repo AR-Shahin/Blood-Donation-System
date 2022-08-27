@@ -30,7 +30,7 @@
                             <td>{{ $user->phone }}</td>
                             <td>{{ $user->upazila->name }}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
+                                <a href="{{ route('admin.user.show',$user->id)}}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
                                 <form action="" class="d-inline">
                                     <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                 </form>
