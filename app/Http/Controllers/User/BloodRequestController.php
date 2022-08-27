@@ -13,7 +13,7 @@ class BloodRequestController extends Controller
 {
     public function index()
     {
-        $user = auth('user')->user()->load(['blood_requests']);
+        $user = auth('user')->user()->load(['blood_requests.blood',"blood_requests.upazila","blood_requests.donor"]);
         return view('user.request.index',compact('user'));
     }
 

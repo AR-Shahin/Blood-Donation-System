@@ -18,8 +18,10 @@
                         <tr>
                             <th>SL</th>
                             <th>Group Name</th>
+                            <th>Date</th>
+                            <th>Address</th>
                             <th>Donor</th>
-                            <th>Available</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -27,10 +29,14 @@
                         @foreach ($user->blood_requests as $request)
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
-                            <td>{{ $request->name }}</td>
+                            <td>{{ $request->blood->name }}</td>
+                            <td>{{ $request->date}}</td>
+                            <td>{{ $request->address }}</td>
+                            <td>{{ $request->donor->name ?? "NULL" }}</td>
+                            <td>{{ $request->status }}</td>
+                            <td>
 
-                            <td>8</td>
-
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
