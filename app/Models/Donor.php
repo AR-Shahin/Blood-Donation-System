@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -53,5 +54,12 @@ class Donor extends Authenticatable
         return $this->belongsTo(Blood::class);
     }
 
+    public static function userDesireAvailableDonors($blood,$upazila)
+    {
+        return self::whereBloodId($blood)
+            ->whereUpazilaId($upazila)
+            ->where('last_donation',"<",Carbon::now()->subMonth(3)->format('Y-m-d'))
+            ->latest()->get();
+    }
 
 }

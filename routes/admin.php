@@ -14,6 +14,8 @@ Route::prefix('admin')->as('admin.')->middleware(['auth:admin'])->group(function
     # Dashboard
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+
+
     Route::controller(CrudController::class)->name('crud.')->prefix('crud')->group(function () {
 
         Route::get('get-all-data', 'getAllData')->name('get-all-data');

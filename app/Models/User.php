@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -56,8 +57,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Upazila::class);
     }
+
     public function blood(): BelongsTo
     {
         return $this->belongsTo(Blood::class);
+    }
+
+    public function blood_requests():HasMany
+    {
+        return $this->hasMany(BloodRequest::class);
     }
 }

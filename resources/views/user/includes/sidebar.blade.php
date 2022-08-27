@@ -21,6 +21,12 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         @auth('user')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.request.index') }}">
+              <i class="nav-icon far ion-ios-medical text-warning"></i>
+              <p>Blood Request</p>
+            </a>
+        </li>
           <li class="nav-item">
             <form action="{{ route('user.logout') }}" method="POST">
                 @csrf

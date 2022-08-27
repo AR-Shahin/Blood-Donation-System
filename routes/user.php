@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\User\{
-    DashboardController,AuthController
+    DashboardController,AuthController,
+    BloodRequestController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,15 @@ Route::name('user.')->prefix('user')->group(function(){
     Route::middleware('auth:user')->group(function(){
         Route::get('dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
         Route::post('logout',[AuthController::class,'logout'])->name('logout');
+
+        # Blood Request
+        Route::controller(BloodRequestController::class)->name('request.')->prefix('request')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'createRequest')->name('create');
+            Route::post('/store', 'sendBloodRequest')->name('store');
+
+
+        });
     });
 
 });
