@@ -23,7 +23,7 @@
 
         @auth('donor')
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.blood.index') }}">
+            <a class="nav-link" href="{{ route('donor.request.index') }}">
               <i class="nav-icon far fa-circle text-warning"></i>
               <p>Blood Request</p>
             </a>

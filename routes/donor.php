@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Donor\{
-    DashboardController,AuthController
+    DashboardController,AuthController,BloodRequestController
 };
+
 use Illuminate\Support\Facades\Route;
 
 Route::name('donor.')->prefix('donor')->group(function(){
@@ -15,6 +16,15 @@ Route::name('donor.')->prefix('donor')->group(function(){
     Route::middleware('auth:donor')->group(function(){
         Route::get('dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
         Route::post('logout',[AuthController::class,'logout'])->name('logout');
+
+          # Blood Request
+          Route::controller(BloodRequestController::class)->name('request.')->prefix('request')->group(function () {
+            Route::get('/', 'index')->name('index');
+            // Route::get('/create', 'createRequest')->name('create');
+            // Route::post('/store', 'sendBloodRequest')->name('store');
+
+
+        });
     });
 
 });

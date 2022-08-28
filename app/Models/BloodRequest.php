@@ -25,4 +25,17 @@ class BloodRequest extends Model
     {
         return $this->belongsTo(Donor::class);
     }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function isDonorCanSeeThisRequest() :bool
+    {
+        if(is_null(auth('donor')->user()->last_donation)){
+            return true;
+        }
+        $diff = difference_two_date($this->date,auth('donor')->user()->last_donation);
+        return $diff >= 90 ? true : false;
+    }
 }

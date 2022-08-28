@@ -49,12 +49,13 @@ class DatabaseSeeder extends Seeder
             "status" => true,
             "phone" => "01754100439",
             "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
+            "last_donation" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
             "upazila_id" => rand(1,25)
         ]);
         // \App\Models\Admin::factory(10)->create();
         // Product::factory(10)->create();
         $this->call([DataSeeder::class,BloodSeeder::class]);
-        Donor::factory(200)->create();
+        Donor::factory(20)->create();
         User::factory(20)->create();
     }
 }

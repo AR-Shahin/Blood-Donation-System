@@ -24,6 +24,10 @@
                         <td>{{ $user->blood->name }}</td>
                     </tr>
                     <tr>
+                        <th>Last Donation</th>
+                        <td>{{ $user->last_donation}}</td>
+                    </tr>
+                    <tr>
                         <th>Upazila</th>
                         <td>{{ $user->upazila->name }}</td>
                     </tr>

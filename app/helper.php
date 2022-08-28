@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 function greetings($name = 'Shahin')
 {
     return "Hello {$name}";
@@ -31,4 +33,33 @@ function sendErrorResponse($error, $errorMessages = [], $code = 404)
         $response['data'] = $errorMessages;
     }
     return response()->json($response, $code);
+}
+
+/**
+ * take two date return bool
+ * first perimeter is new date
+ * second perimeter is old date
+ * return bool value if difference between more than 90 dayss
+ */
+
+function canDonateBlood($new,$old)
+{
+    if(is_null($old)){
+        $old = 0;
+    }
+    $diff = Carbon::parse($new)->diffInDays($old);
+
+    return $diff >= 90 ? true : false;
+}
+
+
+
+function difference_two_date($new,$old):int
+{
+    if(is_null($old)){
+        $old = 0;
+    }
+
+    $diff = Carbon::parse($new)->diffInDays($old);
+    return $diff;
 }
