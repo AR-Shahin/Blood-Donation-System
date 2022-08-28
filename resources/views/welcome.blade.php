@@ -41,7 +41,7 @@
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $blood->name }}</td>
-                            <td>{{ rand(20,30) }}</td>
+                            <td>{{ $blood->donors->count()}}</td>
                         </tr>
                         @endforeach
                     </table>

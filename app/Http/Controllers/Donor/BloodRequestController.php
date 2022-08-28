@@ -22,7 +22,8 @@ class BloodRequestController extends Controller
     public function acceptBloodRequest(BloodRequest $request)
     {
         $request->update([
-            "donor_id" => auth('donor')->id()
+            "donor_id" => auth('donor')->id(),
+            "status"=> "accepted"
         ]);
 
         return back();
