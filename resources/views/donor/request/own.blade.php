@@ -9,7 +9,7 @@
             <div class="card-header d-flex justify-content-between">
                 <h2 class="text-info">Blood Request List</h2>
                 <div>
-                    <a href="{{ route('donor.request.own') }}" class="btn btn-sm btn-success">My Request</a>
+                    <a href="{{ route('donor.request.index') }}" class="btn btn-sm btn-success">Back</a>
                 </div>
             </div>
             <div class="card-body">
@@ -36,10 +36,6 @@
                             <td>{{ $request->user->name ?? "NULL" }}</td>
                             <td>{{ $request->status }}</td>
                             <td>
-                                <form action="{{ route('donor.request.accept',$request->id) }}" class="d-inline" method="POST">
-                                    @csrf
-                                    <button class="btn btn-sm btn-success">Accept</button>
-                                </form>
                             </td>
                         @endif
                         </tr>

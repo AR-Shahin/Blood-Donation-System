@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -62,6 +63,15 @@ class Donor extends Authenticatable
                                             ->subMonth(3)
                                             ->format('Y-m-d'))
             ->latest()->get();
+    }
+
+    function availableDonors(){
+        $this->donors;
+    }
+
+    public function blood_requests():HasMany
+    {
+        return $this->hasMany(BloodRequest::class);
     }
 
 }

@@ -28,4 +28,11 @@ class BloodRequestController extends Controller
 
         return back();
     }
+
+    public function myRequest()
+    {
+        $reqs = auth('donor')->user()->blood_requests;
+        return view('donor.request.own',compact('reqs'));
+
+    }
 }

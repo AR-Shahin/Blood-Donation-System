@@ -20,7 +20,7 @@ Route::name('donor.')->prefix('donor')->group(function(){
           # Blood Request
           Route::controller(BloodRequestController::class)->name('request.')->prefix('request')->group(function () {
             Route::get('/', 'index')->name('index');
-            // Route::get('/create', 'createRequest')->name('create');
+            Route::get('/own', 'myRequest')->name('own');
             Route::post('/accept/{request}', 'acceptBloodRequest')->name('accept');
 
 
