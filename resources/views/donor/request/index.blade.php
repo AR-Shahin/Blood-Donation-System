@@ -36,8 +36,9 @@
                             <td>{{ $request->user->name ?? "NULL" }}</td>
                             <td>{{ $request->status }}</td>
                             <td>
-                                <form action="" class="d-inline">
-                                    <button class="btn btn-sm btn-success">Pick</button>
+                                <form action="{{ route('donor.request.accept',$request->id) }}" class="d-inline" method="POST">
+                                    @csrf
+                                    <button class="btn btn-sm btn-success">Accept</button>
                                 </form>
                             </td>
                         @endif

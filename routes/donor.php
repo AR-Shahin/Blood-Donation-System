@@ -21,7 +21,7 @@ Route::name('donor.')->prefix('donor')->group(function(){
           Route::controller(BloodRequestController::class)->name('request.')->prefix('request')->group(function () {
             Route::get('/', 'index')->name('index');
             // Route::get('/create', 'createRequest')->name('create');
-            // Route::post('/store', 'sendBloodRequest')->name('store');
+            Route::post('/accept/{request}', 'acceptBloodRequest')->name('accept');
 
 
         });

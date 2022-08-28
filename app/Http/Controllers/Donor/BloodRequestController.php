@@ -18,4 +18,13 @@ class BloodRequestController extends Controller
 
         return view('donor.request.index',compact('reqs'));
     }
+
+    public function acceptBloodRequest(BloodRequest $request)
+    {
+        $request->update([
+            "donor_id" => auth('donor')->id()
+        ]);
+
+        return back();
+    }
 }
