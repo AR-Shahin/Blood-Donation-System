@@ -77,4 +77,6 @@ class Donor extends Authenticatable
         return $this->hasMany(BloodRequest::class);
     }
 
+
+
 }

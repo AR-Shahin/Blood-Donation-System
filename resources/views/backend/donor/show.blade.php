@@ -45,7 +45,7 @@
                         <th>Status</th>
                         <td>{{ $donor->status ?? "NULL" }}</td>
                         <th>Total Donate</th>
-                        <td><span class="badge badge-success badge-pill">{{ rand(10,20) }}</span></td>
+                        <td><span class="badge badge-success badge-pill">{{ count($donor->blood_requests )}}</span></td>
                         {{-- <th>Last Donation</th>
                         <td>{{ $donor->last_donation }}</td> --}}
                     </tr>
