@@ -27,10 +27,12 @@ class RedirectIfAuthenticated
                 if ('admin' === $guard) {
                     return redirect(RouteServiceProvider::ADMIN_HOME);
                 }
-                // elseif ('web' === $guard) {
-                //     return redirect(RouteServiceProvider::HOME);
-                // }
-
+                elseif ('user' === $guard) {
+                    return redirect(RouteServiceProvider::USER_HOME);
+                }
+                elseif ('donor' === $guard) {
+                    return redirect(RouteServiceProvider::DONOR_HOME);
+                }
                 // return redirect(RouteServiceProvider::HOME);
             }
 
