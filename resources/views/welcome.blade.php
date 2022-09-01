@@ -35,6 +35,7 @@
                         <tr>
                             <th>SL</th>
                             <th>Blood Group</th>
+                            <th>Total Donor</th>
                             <th>Available Donor</th>
                         </tr>
                         @foreach (\App\Models\Blood::get() as $blood)
@@ -42,6 +43,7 @@
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $blood->name }}</td>
                             <td>{{ $blood->donors->count()}}</td>
+                            <td>{{ count($blood->available_donors)}}</td>
                         </tr>
                         @endforeach
                     </table>

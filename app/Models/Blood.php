@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Blood extends Model
 {
@@ -15,5 +16,12 @@ class Blood extends Model
     public function donors(): HasMany
     {
         return $this->hasMany(Donor::class);
+    }
+
+    public function available_donors(){
+        return $this->donors()->where('last_donation',"<",Carbon::now()
+                                                    ->subMonth(3)
+                                                    ->format('Y-m-d'));
+
     }
 }

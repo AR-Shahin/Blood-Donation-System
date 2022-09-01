@@ -35,4 +35,10 @@ class BloodRequestController extends Controller
         return view('donor.request.own',compact('reqs'));
 
     }
+
+    public function show(BloodRequest $request)
+    {
+        $request = $request->load(['user','blood']);
+        return view('donor.request.view',compact('request'));
+    }
 }

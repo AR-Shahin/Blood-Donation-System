@@ -19,9 +19,9 @@
                             <th>SL</th>
                             <th>Group Name</th>
                             <th>Date</th>
-                            <th>Address</th>
                             <th>User</th>
                             <th>Status</th>
+                            <th>Time</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -32,11 +32,12 @@
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $request->blood->name }}</td>
                             <td>{{ $request->date}}</td>
-                            <td>{{ $request->address }}</td>
                             <td>{{ $request->user->name ?? "NULL" }}</td>
                             <td>{{ $request->status }}</td>
+                            <td>{{ $request->created_at->diffForHumans() }}</td>
                             <td>
-                                <form action="{{ route('donor.request.accept',$request->id) }}" class="d-inline" method="POST">
+                                <a href="{{ route('donor.request.show',$request->id) }}" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
+                                <form class="d-inline" action="{{ route('donor.request.accept',$request->id) }}" class="d-inline" method="POST">
                                     @csrf
                                     <button class="btn btn-sm btn-success">Accept</button>
                                 </form>

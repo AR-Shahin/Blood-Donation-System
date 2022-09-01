@@ -65,6 +65,6 @@ class User extends Authenticatable
 
     public function blood_requests():HasMany
     {
-        return $this->hasMany(BloodRequest::class);
+        return $this->hasMany(BloodRequest::class)->latest();
     }
 }

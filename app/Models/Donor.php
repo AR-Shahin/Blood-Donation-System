@@ -66,8 +66,11 @@ class Donor extends Authenticatable
     }
 
     function availableDonors(){
-        $this->donors;
+        return $this->where('last_donation',"<",Carbon::now()
+                                            ->subMonth(3)
+                                            ->format('Y-m-d'))->get();
     }
+
 
     public function blood_requests():HasMany
     {

@@ -22,6 +22,7 @@
                             <th>Address</th>
                             <th>Donor</th>
                             <th>Status</th>
+                            <th>Time</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -34,8 +35,16 @@
                             <td>{{ $request->address }}</td>
                             <td>{{ $request->donor->name ?? "NULL" }}</td>
                             <td>{{ $request->status }}</td>
+                            <td>{{ $request->created_at->diffForHumans() }}</td>
                             <td>
-
+                                @if ($request->status == "pending")                                  
+                                <form action="{{ route('donor.request.accept',$request->id) }}" class="d-inline" method="POST">
+                                    @csrf
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                                @else
+                                <button class="btn btn-sm btn-success">Accepted</button>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
