@@ -7,6 +7,7 @@ use App\Models\Division;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\DonorController;
+use App\Mail\BloodRequestMail;
 
 Route::get('/', function () {
     // return view('layouts.frontend_app');
@@ -41,3 +42,7 @@ Route::prefix('donor')->name('donor.')->controller(DonorController::class)->grou
 
 Route::get('division-districts/{division}',[DonorController::class,'getDistrictsByDivision'])->name('division-districts');
 Route::get('district-upazilas/{district}',[DonorController::class,'getUpazilasByDistrict'])->name('division-upazilas');
+
+Route::get('mailr',function(){
+    return new BloodRequestMail;
+});
