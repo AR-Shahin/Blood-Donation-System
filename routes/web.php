@@ -44,5 +44,5 @@ Route::get('division-districts/{division}',[DonorController::class,'getDistricts
 Route::get('district-upazilas/{district}',[DonorController::class,'getUpazilasByDistrict'])->name('division-upazilas');
 
 Route::get('mailr',function(){
-    return new BloodRequestMail;
+    // return new BloodRequestMail;
 });

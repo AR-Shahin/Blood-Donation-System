@@ -24,6 +24,7 @@ return new class extends Migration
             $table->date('date');
             $table->enum('status',['pending','accepted','complete'])->default('pending');
             $table->text('address');
+            $table->string('time')->nullable();
             $table->timestamps();
         });
     }

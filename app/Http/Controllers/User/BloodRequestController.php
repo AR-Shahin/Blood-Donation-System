@@ -7,7 +7,9 @@ use App\Models\Blood;
 use App\Models\Donor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\BloodRequestMail;
 use App\Models\BloodRequest;
+use Illuminate\Support\Facades\Mail;
 
 class BloodRequestController extends Controller
 {
@@ -27,15 +29,27 @@ class BloodRequestController extends Controller
     }
     public function sendBloodRequest(Request $request)
     {
-        BloodRequest::create([
-            "blood_id" => $request->blood_id,
-            "date" => $request->date,
-            "address" => $request->address,
-            "blood_id" => $request->blood_id,
-            "upazila_id" => auth('user')->user()->upazila_id,
-            "user_id" => auth('user')->id(),
-            "blood_id" => $request->blood_id,
-        ]);
+        $user = auth('user')->user();
+        $donors = Donor::userDesireAvailableDonors($request->blood_id, auth('user')->user()->upazila_id);
+
+        if($donors){
+            $blood_req = BloodRequest::create([
+                "blood_id" => $request->blood_id,
+                "date" => $request->date,
+                "address" => $request->address,
+                "blood_id" => $request->blood_id,
+                "upazila_id" => auth('user')->user()->upazila_id,
+                "user_id" => auth('user')->id(),
+                "blood_id" => $request->blood_id,
+            ]);
+            if($blood_req){
+                foreach($donors as $donor){
+                    Mail::to($donor->email)->send(new BloodRequestMail($blood_req,$user,$donor));
+                }
+            }
+        }else{
+            return "Nai";
+        }
 
         return redirect()->route('user.request.index');
     }
