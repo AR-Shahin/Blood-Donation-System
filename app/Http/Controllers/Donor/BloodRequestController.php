@@ -26,8 +26,9 @@ class BloodRequestController extends Controller
                 "donor_id" => auth('donor')->id(),
                 "status"=> "accepted"
             ]);
-            return redirect()->route('donor.request.index');
+            return redirect()->route('donor.request.own');
         }
+        return redirect()->route('donor.request.index');
 
     }
 
