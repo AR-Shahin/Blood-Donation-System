@@ -32,6 +32,9 @@ class BloodRequestController extends Controller
         $user = auth('user')->user();
         $donors = Donor::userDesireAvailableDonors($request->blood_id, auth('user')->user()->upazila_id);
 
+        if(count($donors) === 0){
+            return redirect()->route('user.request.create');
+        }
         if($donors){
             $blood_req = BloodRequest::create([
                 "blood_id" => $request->blood_id,

@@ -7,9 +7,11 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
-                <h2 class="text-info">Blood Request List</h2>
                 <div>
-                    <a href="{{ route('user.request.create') }}" class="btn btn-sm btn-success">Make A Request</a>
+                    <h2 class="text-info">Blood Request List</h2>
+                </div>
+                <div class=" align-self-center" >
+                    <a href="{{ route('user.request.create') }}"  class="btn btn-sm btn-info">Make A Request</a>
                 </div>
             </div>
             <div class="card-body">
@@ -37,7 +39,7 @@
                             <td>{{ $request->status }}</td>
                             <td>{{ $request->created_at->diffForHumans() }}</td>
                             <td>
-                                @if ($request->status == "pending")                                  
+                                @if ($request->status == "pending")
                                 <form action="{{ route('donor.request.accept',$request->id) }}" class="d-inline" method="POST">
                                     @csrf
                                     <button class="btn btn-sm btn-danger">Delete</button>
