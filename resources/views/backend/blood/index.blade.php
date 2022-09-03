@@ -26,7 +26,7 @@
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $blood->name }}</td>
                             <td>{{ $blood->donors_count }}</td>
-                            <td>8</td>
+                            <td>{{ count($blood->available_donors) }}</td>
                             <td>
                                 <a href="{{ route('admin.blood.donors',$blood->id) }}" class="btn btn-sm btn-success">View</a>
                             </td>
