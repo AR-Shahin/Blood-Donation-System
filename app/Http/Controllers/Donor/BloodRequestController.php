@@ -21,12 +21,14 @@ class BloodRequestController extends Controller
 
     public function acceptBloodRequest(BloodRequest $request)
     {
-        $request->update([
-            "donor_id" => auth('donor')->id(),
-            "status"=> "accepted"
-        ]);
+        if($request->status == "pending"){
+            $request->update([
+                "donor_id" => auth('donor')->id(),
+                "status"=> "accepted"
+            ]);
+            return redirect()->route('donor.request.index');
+        }
 
-        return back();
     }
 
     public function myRequest()

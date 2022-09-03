@@ -22,7 +22,8 @@ Route::name('donor.')->prefix('donor')->group(function(){
             Route::get('/', 'index')->name('index');
             Route::get('/show/{request}', 'show')->name('show');
             Route::get('/own', 'myRequest')->name('own');
-            Route::post('/accept/{request}', 'acceptBloodRequest')->name('accept');
+            Route::any('/accept/{request}', 'acceptBloodRequest')->name('accept');
+
         });
     });
 

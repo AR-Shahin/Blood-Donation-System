@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Dear, <span><b>{{ $donor->name }}</b></span>. You got a blood request for this <b>(A+) </b>group in this address(<span> <b>{{ $request->address }}</b></span>) in <b>{{ $request->date }}</b> at <b>5PM</b>. If you're available that day to accept this blood request click here <a href="">Accept Request</a></p>
+    {{ route('donor.request.accept',$request->id) }}
+    <p>Dear, <span><b>{{ $donor->name }}</b></span>. You got a blood request for this <b>(A+) </b>group in this address(<span> <b>{{ $request->address }}</b></span>) in <b>{{ $request->date }}</b> at <b>5PM</b>. If you're available that day to accept this blood request click here <a href="{{ route('donor.request.accept',$request->id) }}">Accept Request</a></p>
     <p>User Details are.</p>
     <table border="1">
         <tbody>
