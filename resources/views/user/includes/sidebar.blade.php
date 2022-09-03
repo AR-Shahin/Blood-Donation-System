@@ -22,6 +22,13 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         @auth('user')
         <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.dashboard') }}">
+              <i class="nav-icon far ion-ios-home text-warning"></i>
+              <p>Dashboard</p>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('user.request.index') }}">
               <i class="nav-icon far ion-ios-medical text-warning"></i>
               <p>Blood Request</p>
