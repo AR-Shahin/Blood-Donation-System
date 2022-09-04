@@ -17,9 +17,10 @@
                     @csrf
                     <div class="row">
                         <x-frontend.select-component label="Blood Group" name="blood_id" :data="$bloods"/>
+
                     <div class="col-md-3">
                         <label for=""><b>Date : </b></label>
-                        <input type="date" class="form-control" name="date" id="date" min="{{ date('Y-m-d') }}">
+                        <input type="date" class="form-control" name="date" id="date" min="{{ date('Y-m-d') }}" value="{{ old('date') }}">
                         @error("date")
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

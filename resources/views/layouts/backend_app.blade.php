@@ -26,6 +26,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('Backend') }}/plugins/summernote/summernote-bs4.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
   @stack('css')
 
 </head>
@@ -71,10 +72,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="{{ asset('custom/custom.js') }}"></script>
+
 <script>
     $('.dataTable').DataTable();
  </script>
+ <script>
+    @if (Session::has('success'))
+        toastr.success("{{ Session::get('success') }}", 'Success!')
+    @elseif(Session::has('warning'))
+        toastr.warning("{{ Session::get('warning') }}", 'Warning!')
+    @elseif(Session::has('error'))
+        toastr.error("{{ Session::get('error') }}", 'Error!')
+    @endif
+</script>
 @stack('script')
 </body>
 </html>
