@@ -21,10 +21,11 @@
                             <th>SL</th>
                             <th>Group Name</th>
                             <th>Date</th>
+                            <th>Time</th>
                             <th>Address</th>
                             <th>Donor</th>
                             <th>Status</th>
-                            <th>Time</th>
+                            <th>Req Time</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -34,13 +35,14 @@
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $request->blood->name }}</td>
                             <td>{{ $request->date}}</td>
+                            <td>{{ $request->time}}</td>
                             <td>{{ $request->address }}</td>
                             <td>{{ $request->donor->name ?? "NULL" }}</td>
                             <td>{{ $request->status }}</td>
                             <td>{{ $request->created_at->diffForHumans() }}</td>
                             <td>
                                 @if ($request->status == "pending")
-                                <form action="{{ route('donor.request.accept',$request->id) }}" class="d-inline" method="POST">
+                                <form action="{{ route('user.request.delete',$request->id) }}" class="d-inline" method="POST">
                                     @csrf
                                     <button class="btn btn-sm btn-danger">Delete</button>
                                 </form>

@@ -49,7 +49,7 @@ Route::get('district-upazilas/{district}',[DonorController::class,'getUpazilasBy
 Route::get('mailr',function(){
     $user = User::find(1);
     $donor = Donor::find(1);
-    $req = BloodRequest::find(5);
+    $req = BloodRequest::find(1);
 
     return new BloodRequestMail($req,$user,$donor);
 });

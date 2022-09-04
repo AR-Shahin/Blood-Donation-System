@@ -70,4 +70,11 @@ class BloodRequestController extends Controller
         session()->flash('success', 'Your Request has been sent!');
         return redirect()->route('user.request.index');
     }
+
+    public function delete(BloodRequest $request)
+    {
+        $request->delete();
+        session()->flash('success', 'Your Request has been deleted!');
+        return back();
+    }
 }

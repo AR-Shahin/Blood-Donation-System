@@ -22,8 +22,7 @@ Route::name('user.')->prefix('user')->group(function(){
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'createRequest')->name('create');
             Route::post('/store', 'sendBloodRequest')->name('store');
-
-
+            Route::post('/delete/{request}', 'delete')->name('delete');
         });
     });
 
