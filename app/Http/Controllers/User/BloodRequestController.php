@@ -30,7 +30,7 @@ class BloodRequestController extends Controller
 
     public function sendBloodRequest(Request $request)
     {
-
+//return $request;
         $request->validate([
             "blood_id" => ['required'],
             "date" => ['required'],
@@ -59,6 +59,7 @@ class BloodRequestController extends Controller
                 "upazila_id" => auth('user')->user()->upazila_id,
                 "user_id" => auth('user')->id(),
                 "blood_id" => $request->blood_id,
+                "time" => $request->time
             ]);
             if($blood_req){
                 foreach($donors as $donor){

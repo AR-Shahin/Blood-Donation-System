@@ -1,13 +1,16 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Blood;
+use App\Models\Donor;
 use App\Mail\TestMail;
 use App\Models\Division;
+use App\Models\BloodRequest;
+use App\Mail\BloodRequestMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\DonorController;
-use App\Mail\BloodRequestMail;
 
 Route::get('/', function () {
     // return view('layouts.frontend_app');
@@ -44,5 +47,9 @@ Route::get('division-districts/{division}',[DonorController::class,'getDistricts
 Route::get('district-upazilas/{district}',[DonorController::class,'getUpazilasByDistrict'])->name('division-upazilas');
 
 Route::get('mailr',function(){
-    // return new BloodRequestMail;
+    $user = User::find(1);
+    $donor = Donor::find(1);
+    $req = BloodRequest::find(5);
+
+    return new BloodRequestMail($req,$user,$donor);
 });

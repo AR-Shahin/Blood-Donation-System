@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +11,6 @@ class BloodRequest extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
     public function upazila(): BelongsTo
     {
         return $this->belongsTo(Upazila::class);
@@ -37,5 +37,10 @@ class BloodRequest extends Model
         }
         $diff = difference_two_date($this->date,auth('donor')->user()->last_donation);
         return $diff >= 90 ? true : false;
+    }
+
+    public function getTimeAttribute()
+    {
+        return Carbon::parse($this->attributes['time'])->format('h:i A');
     }
 }
