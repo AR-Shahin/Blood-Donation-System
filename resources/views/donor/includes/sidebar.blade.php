@@ -23,6 +23,12 @@
 
         @auth('donor')
         <li class="nav-item">
+            <a class="nav-link" href="{{ route('donor.dashboard') }}">
+              <i class="nav-icon fa fa-home text-warning"></i>
+              <p>Dashboard</p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('donor.request.index') }}">
               <i class="nav-icon far fa-circle text-warning"></i>
               <p>Blood Request</p>
