@@ -25,10 +25,10 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-
-                    <div class="col-md-6">
+                    <x-frontend.input-component label="Time" name="time" placeholder="Enter Your Time"/>
+                    <div class="col-md-3">
                         <label for=""><b>Address : </b></label>
-                        <textarea class="form-control" rows="4" name ="address" cols="50" placeholder="Describe Address here...(United Hospital Limited, Plot 15 Rd No 71, Dhaka 1212)"></textarea>
+                        <textarea class="form-control" rows="1" name ="address" cols="50" placeholder="Describe Address here...(United Hospital Limited, Plot 15 Rd No 71, Dhaka 1212)"></textarea>
                         @error("address")
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -36,7 +36,7 @@
 
                 </div>
 
-                <div class="row">
+                <div class="row mt-1">
                     <div class="col-md-3">
                         <button class="btn btn-sm btn-success">Submit</button>
                     </div>

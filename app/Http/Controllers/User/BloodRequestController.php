@@ -27,24 +27,27 @@ class BloodRequestController extends Controller
         $bloods = Blood::latest()->get();
         return view('user.request.create',compact('bloods'));
     }
+
     public function sendBloodRequest(Request $request)
     {
+
         $request->validate([
             "blood_id" => ['required'],
             "date" => ['required'],
             "address" => ['required'],
+            "time" => ['required'],
         ],
             [
                 "blood_id.required" => 'This field is required',
                 "date.required" => 'This field is required',
             ]
         );
-        session()->flash('warning', 'Nddddddddo donors available!');
+
         $user = auth('user')->user();
         $donors = Donor::userDesireAvailableDonors($request->blood_id, auth('user')->user()->upazila_id);
 
         if(count($donors) === 0){
-            session()->flash('warning', 'No donors available!');
+            session()->flash('error', 'No donors available in your region!');
             return redirect()->route('user.request.create');
         }
         if($donors){
@@ -62,10 +65,8 @@ class BloodRequestController extends Controller
                     Mail::to($donor->email)->send(new BloodRequestMail($blood_req,$user,$donor));
                 }
             }
-        }else{
-            return "Nai";
         }
-
+        session()->flash('success', 'Your Request has been sent!');
         return redirect()->route('user.request.index');
     }
 }
