@@ -24,7 +24,7 @@ class BloodRequestController extends Controller
        // return Carbon::now()->subMonth(3)->format('Y-m-d');
         $do = Donor::userDesireAvailableDonors(1,auth('user')->user()->upazila_id);
       //  return $do->load('upazila.district.division');
-        $bloods = Blood::latest()->get();
+        $bloods = Blood::with('available_donor_in_user_area')->latest()->get();
         return view('user.request.create',compact('bloods'));
     }
 
@@ -48,7 +48,7 @@ class BloodRequestController extends Controller
 
         if(count($donors) === 0){
             session()->flash('error', 'No donors available in your region!');
-            return redirect()->route('user.request.create');
+            return redirect()->route('user.request.create')->withInput();
         }
         if($donors){
             $blood_req = BloodRequest::create([

@@ -24,4 +24,13 @@ class Blood extends Model
                                                     ->format('Y-m-d'));
 
     }
+
+    public function available_donor_in_user_area()
+    {
+        return $this->donors()->where('last_donation',"<",Carbon::now()
+                                                    ->subMonth(3)
+                                                    ->format('Y-m-d'))
+                                ->whereUpazilaId(auth('user')->user()->upazila_id);
+    }
+
 }

@@ -7,8 +7,8 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
-                <h2 class="text-info">Blood Request List</h2>
-                <div>
+                <h2 class="text-info">New Blood Request</h2>
+                <div class="align-self-center">
                     <a href="{{ route('donor.request.own') }}" class="btn btn-sm btn-success">My Request</a>
                 </div>
             </div>

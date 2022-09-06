@@ -16,7 +16,19 @@
                 <form action="{{ route('user.request.store') }}" method="POST">
                     @csrf
                     <div class="row">
-                        <x-frontend.select-component label="Blood Group" name="blood_id" :data="$bloods"/>
+                        <div class="col-md-3">
+                            <label for=""><b>Blood : </b></label>
+                            <select name="blood_id" id="blood_id" class="form-control" value={{ old("blood_id") }}>
+                                <option value="">Select a Blood</option>
+                                @foreach ($bloods as $blood)
+                                <option value="{{ $blood->id }}">{{ $blood->name }} __ [{{ count($blood->available_donor_in_user_area) }}]</option>
+                                @endforeach
+                            </select>
+                            @error("blood_id")
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
 
                     <div class="col-md-3">
                         <label for=""><b>Date : </b></label>
