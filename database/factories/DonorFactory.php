@@ -27,7 +27,7 @@ class DonorFactory extends Factory
             "status" => true,
             "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
             "last_donation" => Carbon::now()
-                                            ->subMonth(rand(1,4))
+                                            ->subMonth(rand(3,4))
                                             ->format('Y-m-d'),
             "upazila_id" => rand(1,25)
         ];

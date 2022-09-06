@@ -13,10 +13,35 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="dataTable table table-bordered table-hover text-center table-sm">
+                <table class="dataTable table table-bordered table-hover text--center table-sm">
                     <tr>
                         <th>Address</th>
                         <td>{{ $request->address }}</td>
+                    </tr>
+
+                     <tr>
+                        <th>Donation Time</th>
+                        <td>{{ $request->time }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <td>{{ $request->date }}</td>
+                    </tr>
+                     <tr>
+                        <th>Req Date</th>
+                        <td>{{ $request->created_at->format("Y-m-d") }}</td>
+                    </tr>
+                    <tr>
+                        <th>User Name</th>
+                        <td>{{ $request->user->name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>{{ $request->user->phone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ $request->user->email }}</td>
                     </tr>
                 </table>
             </div>

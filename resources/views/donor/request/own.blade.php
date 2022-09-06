@@ -19,6 +19,7 @@
                             <th>SL</th>
                             <th>Group Name</th>
                             <th>Date</th>
+                            <th>Time</th>
                             <th>Address</th>
                             <th>User</th>
                             <th>Status</th>
@@ -27,17 +28,18 @@
                     </thead>
                     <tbody id="tbody">
                         @foreach ($reqs as $request)
-                        @if ($request->isDonorCanSeeThisRequest())
+
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $request->blood->name }}</td>
                             <td>{{ $request->date}}</td>
+                            <td>{{ $request->time }}</td>
                             <td>{{ $request->address }}</td>
                             <td>{{ $request->user->name ?? "NULL" }}</td>
                             <td>{{ $request->status }}</td>
                             <td>
                             </td>
-                        @endif
+
                         </tr>
                         @endforeach
                     </tbody>

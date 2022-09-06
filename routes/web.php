@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\DonorController;
 
 Route::get('/', function () {
+
     // return view('layouts.frontend_app');
     return view('welcome');
 });

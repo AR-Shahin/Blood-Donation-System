@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\BloodRequest;
 use App\Models\Donor;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
@@ -55,7 +56,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\Admin::factory(10)->create();
         // Product::factory(10)->create();
         $this->call([DataSeeder::class,BloodSeeder::class]);
-        Donor::factory(200)->create();
+        Donor::factory(500)->create();
         User::factory(20)->create();
+        //BloodRequest::factory(1000)->create();
     }
 }

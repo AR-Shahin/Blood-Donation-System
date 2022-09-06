@@ -37,7 +37,7 @@ class BloodRequestController extends Controller
 
     public function myRequest()
     {
-        $reqs = auth('donor')->user()->blood_requests;
+         $reqs = auth('donor')->user()->blood_requests;
         return view('donor.request.own',compact('reqs'));
 
     }
