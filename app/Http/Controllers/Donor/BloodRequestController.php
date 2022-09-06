@@ -29,8 +29,10 @@ class BloodRequestController extends Controller
             auth('donor')->user()->update([
                 "last_donation" => $request->date
             ]);
+            session()->flash('success',"Request accept successfully!");
             return redirect()->route('donor.request.own');
         }
+        session()->flash('warning',"Request already accepted!");
         return redirect()->route('donor.request.index');
 
     }
