@@ -23,6 +23,7 @@ class AuthController extends Controller
     {
         $divisons = Division::latest()->get();
         $bloods = Blood::latest()->get();
+
         return view('donor.auth.register',compact('divisons','bloods'));
     }
 
@@ -41,6 +42,7 @@ class AuthController extends Controller
             "last_donation" => $request->last_donation ? $request->last_donation : null,
             "upazila_id" => $request->upazila_id
         ]);
+        session()->flash('success',"Authentication successfully!");
         return redirect()->route('donor.login');
     }
 
