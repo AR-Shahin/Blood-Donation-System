@@ -41,6 +41,7 @@ class AuthController extends Controller
             "date_of_birth" => $request->date_of_birth,
             "upazila_id" => $request->upazila_id
         ]);
+        session()->flash('success',"Authentication successfully!");
         return redirect()->intended(route('user.login'));
     }
 
