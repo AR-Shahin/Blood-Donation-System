@@ -34,24 +34,48 @@ class DatabaseSeeder extends Seeder
             "name" => "user",
             "email" => "user@mail.com",
             "password" => bcrypt("password"),
-            "blood_id" => rand(1,8),
+            "blood_id" => 1,
             "age" => rand(20,35),
             "status" => true,
             "phone" => "01754100439",
             "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
-            "upazila_id" => rand(1,25)
+            "upazila_id" => 1
         ]);
         Donor::create([
             "name" => "Donor",
             "email" => "donor@mail.com",
             "password" => bcrypt("password"),
-            "blood_id" => rand(1,8),
+            "blood_id" => 1,
             "age" => rand(20,35),
             "status" => true,
             "phone" => "01754100439",
             "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
-            "last_donation" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
-            "upazila_id" => rand(1,25)
+            "last_donation" => null,
+            "upazila_id" => 1
+        ]);
+        Donor::create([
+            "name" => "Donor2",
+            "email" => "donor2@mail.com",
+            "password" => bcrypt("password"),
+            "blood_id" => 1,
+            "age" => rand(20,35),
+            "status" => true,
+            "phone" => "01754100439",
+            "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
+            "last_donation" => null,
+            "upazila_id" => 1
+        ]);
+        Donor::create([
+            "name" => "Donor3",
+            "email" => "donor3@mail.com",
+            "password" => bcrypt("password"),
+            "blood_id" => 1,
+            "age" => rand(20,35),
+            "status" => true,
+            "phone" => "01754100439",
+            "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
+            "last_donation" => null,
+            "upazila_id" => 1
         ]);
         // \App\Models\Admin::factory(10)->create();
         // Product::factory(10)->create();
