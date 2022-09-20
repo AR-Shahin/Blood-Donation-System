@@ -61,11 +61,11 @@ class BloodRequestController extends Controller
                 "blood_id" => $request->blood_id,
                 "time" => $request->time
             ]);
-            if($blood_req){
-                foreach($donors as $donor){
-                    Mail::to($donor->email)->send(new BloodRequestMail($blood_req,$user,$donor));
-                }
-            }
+            // if($blood_req){
+            //     foreach($donors as $donor){
+            //         Mail::to($donor->email)->send(new BloodRequestMail($blood_req,$user,$donor));
+            //     }
+            // }
         }
         session()->flash('success', 'Your Request has been sent!');
         return redirect()->route('user.request.index');
