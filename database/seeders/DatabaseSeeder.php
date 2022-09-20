@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
             "status" => true,
             "phone" => "01754100439",
             "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
-            "last_donation" => null,
+            "last_donation" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
             "upazila_id" => 1
         ]);
         Donor::create([
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
             "status" => true,
             "phone" => "01754100439",
             "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
-            "last_donation" => null,
+            "last_donation" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
             "upazila_id" => 1
         ]);
         Donor::create([
@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
             "status" => true,
             "phone" => "01754100439",
             "date_of_birth" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
-            "last_donation" => null,
+            "last_donation" => Carbon::now()->subYears(rand(18,34))->format('Y-m-d'),
             "upazila_id" => 1
         ]);
         // \App\Models\Admin::factory(10)->create();
