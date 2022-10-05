@@ -30,6 +30,7 @@ class Blood extends Model
         return $this->donors()->where('last_donation',"<",Carbon::now()
                                                     ->subMonth(3)
                                                     ->format('Y-m-d'))
+                                ->orWhere('last_donation',null)
                                 ->whereUpazilaId(auth('user')->user()->upazila_id);
     }
 

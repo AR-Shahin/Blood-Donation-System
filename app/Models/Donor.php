@@ -59,6 +59,7 @@ class Donor extends Authenticatable
     {
         return self::whereBloodId($blood)
             ->whereUpazilaId($upazila)
+            ->orWhere('last_donation',null)
             ->where('last_donation',"<",Carbon::now()
                                             ->subMonth(3)
                                             ->format('Y-m-d'))
