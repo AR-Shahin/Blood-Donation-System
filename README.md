@@ -2,7 +2,7 @@
 
 
 ## About Project
-In this project, I've developed a blood donation system where user can search blood easily. 
+In this project, I've developed a blood donation system where user can search blood easily.Our Blood Donation System or BDS offers a system that solves a critical problem in critical times. It becomes a fearsome situation when blood is needed for a patient and the blood cannot be found anywhere. Especially when the type of the blood is rare. By spreading our system throughout the country, we hope to be able to greatly reduce the number of deaths caused by the lack of blood. 
 
 
 ## Technology
