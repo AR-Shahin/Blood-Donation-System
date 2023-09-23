@@ -66,6 +66,7 @@
         </div>
     </form>
 </div>
+  <x-frontend.footer/>
 @stop
 @push('js')
 <script>
